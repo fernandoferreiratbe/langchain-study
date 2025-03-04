@@ -8,6 +8,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+OPENAI_API_KEY=os.getenv("OPENAI_API_KEY")
+
+
+print(OPENAI_API_KEY)
+
+exit
+
 numero_de_dias = 7
 numero_de_criancas = 2
 atividade = "praia"
@@ -27,7 +34,7 @@ print(prompt)
 llm = ChatOpenAI(
     model="gpt-3.5-turbo",
     temperature=0.5,
-    api_key=os.getenv("OPENAI_API_KEY")
+    api_key=OPENAI_API_KEY
 )
 
 resposta = llm.invoke(prompt)
