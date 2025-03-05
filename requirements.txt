@@ -1,4 +1,4 @@
 openai==1.63.2
 langchain==0.3.19
 langchain-openai==0.3.6
-dotenv==1.0.1
+dotenv==0.9.9

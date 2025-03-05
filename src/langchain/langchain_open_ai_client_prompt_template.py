@@ -8,25 +8,23 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-OPENAI_API_KEY=os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY=os.getenv("OPENAI_API_KEY", default="")
 
+if not OPENAI_API_KEY:
+    raise ValueError("Open AI Key not found")
 
-print(OPENAI_API_KEY)
+days_number = 7
+child_number = 2
+activity = "praia"
 
-exit
-
-numero_de_dias = 7
-numero_de_criancas = 2
-atividade = "praia"
-
-modelo_de_prompt = PromptTemplate.from_template(
-    "Crie um roteiro de viagem de {dias} dias, para uma família com {criancas} crianças, que gostam de {atividade}."
+prompt_template = PromptTemplate.from_template(
+    "Crie um roteiro de viagem de {days} days, para uma família com {child} crianças, que gostam de {activity}."
 )
 
-prompt = modelo_de_prompt.format(
-    dias=numero_de_dias,
-    criancas=numero_de_criancas,
-    atividade=atividade
+prompt = prompt_template.format(
+    days=days_number,
+    child=child_number,
+    activity=activity
 )
 
 print(prompt)
@@ -37,6 +35,6 @@ llm = ChatOpenAI(
     api_key=OPENAI_API_KEY
 )
 
-resposta = llm.invoke(prompt)
+response = llm.invoke(prompt)
 
-print(resposta.content)
+print(response.content)
