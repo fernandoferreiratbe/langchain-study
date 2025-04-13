@@ -21,7 +21,7 @@ llm = ChatOpenAI(
 
 
 city_model = ChatPromptTemplate.from_template(
-    "Sugira uma cidade dado meu interesse por {interest}"
+    "Sugira uma cidade dado meu interesse por {interest}. A sua saída deve ser SOMENTE o nome da cidade. Cidade: "
 )
 
 restaurant_model = ChatPromptTemplate.from_template(
