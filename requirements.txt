@@ -1,5 +1,8 @@
-openai
-langchain
+openai~=1.65.4
+langchain~=0.3.20
 langchain-openai
 langchain-community
-dotenv
+dotenv~=0.9.9
+
+python-dotenv~=1.0.1
+pydantic~=2.10.6
